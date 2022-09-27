@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './style/styles.scss';
 import Home from './pages/Home';
 
 import reportWebVitals from './reportWebVitals';
+import About from './pages/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +16,7 @@ root.render(
             <Header />
             <Routes>
                 <Route exact path="/" element={<Home />} />
+                <Route exact path="/about" element={<About />} />
             </Routes>
             <Footer />
         </BrowserRouter>

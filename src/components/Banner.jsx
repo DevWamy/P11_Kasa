@@ -1,12 +1,12 @@
 import React from 'react';
-import '../style/components/banner.css';
+import '../style/components/_banner.scss';
 
 const Banner = ({ text, picture }) => {
     return (
         <div className="banner">
             <h1>{text}</h1>
             <img src={picture} alt="banner" />
-            <div className="darken-filter"></div>
+            <div className="darken_filter"></div>
         </div>
     );
 };

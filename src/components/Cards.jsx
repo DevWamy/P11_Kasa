@@ -1,11 +1,12 @@
 import React from 'react';
-import '../style/components/cards.css';
+import '../style/components/_cards.scss';
 
-const Cards = ({ title, lodgingImg }) => {
+const Cards = ({ title, cover }) => {
     return (
         <div className="card">
-            <img src={lodgingImg} alt={title} />
-            <p>{title}</p>
+            <img src={cover} alt={title} />
+            <p>{title}Titre de la location</p>
+            <div className="red_filter"></div>
         </div>
     );
 };

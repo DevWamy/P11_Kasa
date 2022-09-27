@@ -1,6 +1,6 @@
 import React from 'react';
 import kasawhitelogo from '../assets/white_logo.svg';
-import '../style/components/footer.css';
+import '../style/components/_footer.scss';
 const Footer = () => {
     return (
         <div className="footer">

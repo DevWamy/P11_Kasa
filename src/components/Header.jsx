@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import kasalogo from '../assets/Kasa_logo.svg';
-import '../style/components/header.css';
+import '../style/components/_header.scss';
 
 const Header = () => {
     return (
@@ -13,7 +13,7 @@ const Header = () => {
             </div>
             <div className="links">
                 <NavLink to="/">Accueil</NavLink>
-                <NavLink to="/about">À Propos</NavLink>
+                <NavLink to="/About">À Propos</NavLink>
             </div>
         </div>
     );
