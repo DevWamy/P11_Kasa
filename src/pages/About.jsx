@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../components/Banner';
 import bannerImg from '../assets/about_banner.jpg';
 import Collapse from '../components/Collapse';
+import '../style/pages/_about.scss';
 
 const About = () => {
     return (
