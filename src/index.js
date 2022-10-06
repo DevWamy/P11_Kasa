@@ -5,9 +5,10 @@ import About from './pages/About';
 import Error from './pages/Error';
 import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './style/styles.scss';
 import Home from './pages/Home';
+import Housing from './pages/Housing';
 import reportWebVitals from './reportWebVitals';
+import './style/styles.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,8 @@ root.render(
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route exact path="/about" element={<About />} />
+                {/* Route dynamique pour aller sur une page specifique. */}
+                <Route path="/housing/:houseId" element={<Housing />} />
                 <Route path="*" element={<Error />} />
             </Routes>
             <Footer />

@@ -1,7 +1,10 @@
-import Banner from '../components/Banner';
-import Cards from '../components/Cards';
-import bannerImg from '../assets/home_banner.jpg';
-import '../style/pages/_home.scss';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Collapse from '../components/Collapse';
+import Slideshow from '../components/Slideshow';
+import Rating from '../components/Rating';
+import Tags from '../components/Tags';
+import '../style/pages/_housing.scss';
 
 const house = [
     {
@@ -40,7 +43,7 @@ const house = [
             'https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/front-end-kasa-project/accommodation-1-6.jpg',
         ],
         description:
-            "Profitez du charme de la vie parisienne dans un magnifique appartement. A 3 minutes à pied du Canl Saint Martin, vous serez proche des transports, mais également de nombreux commerces. L'appartement est tout équipé, et possède également un parking pour ceux qui souhaitent se déplacer en voiture.",
+            "Profitez du charme de la vie parisienne dans un magnifique appartement. À 3 minutes à pied du Canal Saint Martin, vous serez proche des transports, mais également de nombreux commerces. L'appartement est tout équipé, et possède également un parking pour ceux qui souhaitent se déplacer en voiture.",
         host: {
             name: 'Della Case',
             picture:
@@ -166,17 +169,41 @@ const house = [
     },
 ];
 
-const Home = () => {
+const Housing = () => {
+    // Le useParams renvoie un objet de paires clé/valeur des paramètres dynamiques de l'URL actuelle qui ont été mis
+    // en correspondance par le <Route path>. Les routes enfants héritent de tous les paramètres de leurs routes parentes.
+    //Je créé une variable pour récupérer l'id des apparts.
+    const { houseId } = useParams();
+    //Je recherche dans le tableau house parmi l'element, l'id de l'element correspond à houseId et je le récupère.
+    const currentHouse = house.find((element) => element.id === houseId);
+    //J'affiche l'id de house dans la console.
+    console.log(currentHouse);
+
     return (
-        <div className="home">
-            <Banner text="Chez vous, partout et ailleurs" picture={bannerImg} />
-            <div className="cards_container">
-                {house.map((house) => (
-                    <Cards cover={house.cover} title={house.title} id={house.id} key={house.id} />
-                ))}
+        <div className="house">
+            <div className="body">
+                <Slideshow pictures={currentHouse.pictures} />
+                <div className="content">
+                    <div className="title">
+                        <h2>{currentHouse.title}</h2>
+                        <h3>{currentHouse.location}</h3>
+                        <Tags tags={currentHouse.tags} />
+                    </div>
+                    <div className="infos">
+                        <div className="owner">
+                            <span className="host-name">{currentHouse.host.name}</span>
+                            <img src={currentHouse.host.picture} alt={currentHouse.host.name} />
+                        </div>
+                        <Rating rating={currentHouse.rating} />
+                    </div>
+                </div>
+                <div className="house-description">
+                    <Collapse title="Description" content={currentHouse.description} />
+                    <Collapse title="Équipements" content={currentHouse.equipments} />
+                </div>
             </div>
         </div>
     );
 };
 
-export default Home;
+export default Housing;

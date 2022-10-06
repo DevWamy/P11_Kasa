@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
-import chevronDown from '../assets/down.svg';
+import down from '../assets/down.svg';
 import '../style/components/_collapse.scss';
 
 const Collapse = ({ title, content }) => {
     const [isExpanded, setIsExpanded] = useState(false);
-    let newContent;
-    typeof content === 'string' ? (newContent = [content]) : (newContent = content);
+    const toggle = () => {
+        setIsExpanded(!isExpanded);
+    };
 
     return (
         <div className="collapse">
-            <div
-                className="collapse-header"
-                onClick={() => (isExpanded ? setIsExpanded(false) : setIsExpanded(true))}
-            >
+            <div className="collapse-header" onClick={toggle}>
                 <span className="collapse-title">{title}</span>
-                <img src={chevronDown} alt="down" className={isExpanded ? 'arrow arrow-expanded' : 'arrow'} />
+                <img src={down} alt="down" className={isExpanded ? 'arrow arrow-expanded' : 'arrow'} />
             </div>
             <div className={isExpanded ? 'content collapse-expanded' : 'content collapse-hidden'}>
-                {newContent.map((item) => (
-                    <span key={item}>{item}</span>
-                ))}
+                <div key={content}>{content}</div>
             </div>
         </div>
     );
