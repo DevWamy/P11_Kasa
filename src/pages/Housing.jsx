@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Collapse from '../components/Collapse';
+import CollapseEquipments from '../components/CollapseEquipments';
 import Slideshow from '../components/Slideshow';
 import Rating from '../components/Rating';
 import Tags from '../components/Tags';
@@ -199,7 +200,7 @@ const Housing = () => {
                 </div>
                 <div className="house-description">
                     <Collapse title="Description" content={currentHouse.description} />
-                    <Collapse title="Équipements" content={currentHouse.equipments} />
+                    <CollapseEquipments title="Équipements" content={currentHouse.equipments} />
                 </div>
             </div>
         </div>

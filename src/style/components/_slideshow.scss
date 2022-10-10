@@ -3,42 +3,43 @@
     width: 100%;
     height: 415px;
     border-radius: 25px;
+    overflow: hidden;
+
     .picture {
-        overflow: hidden;
         width: 100%;
         height: 100%;
     }
+
     img {
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
+
     .previous {
         position: absolute;
-        left: 20px;
-        width: 79px;
-        height: 180px;
-        color: blue;
-        background-color: purple;
+        top: 45%;
+        left: 0;
+        margin-left: 23px;
+        width: 47px;
+        height: 79px;
+        background: transparent;
+        border: none;
         cursor: pointer;
     }
+
     .next {
         position: absolute;
-        top: 50px;
-        right: 20px;
-        width: 79px;
-        height: 180px;
-        color: blue;
-        background-color: purple;
+        top: 45%;
+        right: 0;
+        width: 47px;
+        height: 79px;
+        margin-right: 23px;
+        background: transparent;
+        border: none;
         cursor: pointer;
     }
-    .counter {
-        position: absolute;
-        bottom: 6%;
-        font-size: 18px;
-        color: white;
-        font-weight: 500;
-    }
+
     @media screen and (max-width: 742px) {
         height: 255px;
         .prev,

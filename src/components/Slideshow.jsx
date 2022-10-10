@@ -23,22 +23,15 @@ const Slideshow = ({ pictures }) => {
     };
 
     return (
-        <>
-            <img className="gallery" src={pictures[index]} alt="" />
+        <div className="gallery">
+            <img className="picture" src={pictures[index]} alt="" />
             {pictures.length > 1 && (
-                <button className="previous" onClick={prev}>
-                    <img src={previous} alt="previous button" />
-                </button>
+                <img className="previous" onClick={prev} src={previous} alt="previous button" />
             )}
             {pictures.length > 1 && (
-                <button className="next" onClick={next}>
-                    <img src={nextButton} alt="next button" />
-                </button>
+                <img className="next" onClick={next} src={nextButton} alt="next button" />
             )}
-            <div className="counter">
-                {index + 1}/{pictures.length}
-            </div>
-        </>
+        </div>
     );
 };
 
