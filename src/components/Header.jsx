@@ -12,7 +12,7 @@ const Header = () => {
                 </Link>
             </div>
             <div className="links">
-                <NavLink to="/" className={(nav) => (nav.isActive ? 'navActive' : '')}>
+                <NavLink to="/" className={(nav) => (nav.isActive ? 'navActive' : '')} end>
                     Accueil
                 </NavLink>
                 <NavLink to="/About" className={(nav) => (nav.isActive ? 'navActive' : '')}>

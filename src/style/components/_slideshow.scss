@@ -42,8 +42,9 @@
 
     @media screen and (max-width: 742px) {
         height: 255px;
-        .prev,
+        .previous,
         .next {
+            width: 20px;
             height: 20px;
         }
     }

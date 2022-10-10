@@ -28,6 +28,7 @@
 
         .host-name {
             width: 80px;
+            text-align: end;
         }
 
         img {
@@ -41,17 +42,32 @@
         display: flex;
         justify-content: space-between;
         gap: 96px;
-        font-size: 1em;
+        font-size: 16px;
     }
 
     @media screen and (max-width: 742px) {
         .content,
         .house-description {
             flex-direction: column;
+            gap: 20px;
+        }
+
+        .infos {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+
+            .owner {
+                gap: 10.5px;
+
+                .host-name {
+                    width: 50px;
+                }
+            }
         }
 
         span {
-            font-size: 12px;
+            font-size: 13px;
         }
     }
 }

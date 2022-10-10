@@ -30,7 +30,6 @@
             background: #f6f6f6;
             padding: 16px;
             transform: translateY(0);
-            // flex-direction: column;
             line-height: 25px;
 
             div {
@@ -52,6 +51,7 @@
 
         .content.collapse-expanded {
             line-height: 17px;
+            font-size: 12px;
         }
 
         p,
