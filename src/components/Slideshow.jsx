@@ -26,10 +26,10 @@ const Slideshow = ({ pictures }) => {
         <div className="gallery">
             <img className="picture" src={pictures[index]} alt="" />
             {pictures.length > 1 && (
-                <img className="previous" onClick={prev} src={previous} alt="previous button" />
-            )}
-            {pictures.length > 1 && (
-                <img className="next" onClick={next} src={nextButton} alt="next button" />
+                <>
+                    <img className="previous" onClick={prev} src={previous} alt="previous button" />
+                    <img className="next" onClick={next} src={nextButton} alt="next button" />
+                </>
             )}
         </div>
     );
