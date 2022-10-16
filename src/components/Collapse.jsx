@@ -15,10 +15,11 @@ const Collapse = ({ title, content }) => {
                 <img src={down} alt="down" className={isExpanded ? 'arrow arrow-expanded' : 'arrow'} />
             </div>
             <div className={isExpanded ? 'content collapse-expanded' : 'content collapse-hidden'}>
-                {typeof content === "string"
-                ? <div key={content}>{content}</div>
-                : (content.map(item => <span>{item}</span>))
-                }
+                {typeof content === 'string' ? (
+                    <div key={content}>{content}</div>
+                ) : (
+                    content.map((item) => <span key={item}>{item}</span>)
+                )}
             </div>
         </div>
     );
