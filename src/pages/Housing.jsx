@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom'; //Je dois ajouter le Navigate
 import Collapse from '../components/Collapse';
 import Slideshow from '../components/Slideshow';
 import Rating from '../components/Rating';
@@ -8,18 +8,24 @@ import '../style/pages/_housing.scss';
 
 const Housing = () => {
     const [houseDetails, setHouseDetails] = useState(null); // useState parce que c'est un état => asynchrone = on a pas tout tout de suite, ça évolue
-
-    useEffect(() => {
-        fetch('/data/logements.json')
-            .then((response) => response.json())
-            //  J'utilise find pour mettre a jour ton state
-            //Je recherche dans le tableau houseDetails parmi l'element, l'id de l'element correspond à houseId et je le récupère.
-            .then((houseDetails) => setHouseDetails(houseDetails.find((element) => element.id === houseId))); // ici on redéfini houses avec le résultat du fichier appelé
-    });
     // Le useParams renvoie un objet de paires clé/valeur des paramètres dynamiques de l'URL actuelle qui ont été mis
     // en correspondance par le <Route path>. Les routes enfants héritent de tous les paramètres de leurs routes parentes.
     //Je créé une variable pour récupérer l'id des apparts.
+    const [isLoading, setIsLoading] = useState(true);
     const { houseId } = useParams();
+    useEffect(() => {
+        fetch('/data/logements.json')
+            .then((response) => response.json())
+            //  J'utilise find pour mettre à jour ton state
+            //Je recherche dans le tableau houseDetails parmi l'element, l'id de l'element correspond à houseId et je le récupère.
+            .then((houseDetails) => {
+                setHouseDetails(houseDetails.find((element) => element.id === houseId));
+                setIsLoading(false);
+            }); // ici on redéfini houses avec le résultat du fichier appelé
+    });
+    if (isLoading === false && houseDetails === undefined) {
+        return <Navigate to="/Error" />;
+    }
     //La maison actuelle correspond aux details de la maison que j'ai récupéré auparavant.
     const currentHouse = houseDetails;
 
@@ -35,7 +41,7 @@ const Housing = () => {
                             <div className="title">
                                 <h2>{currentHouse.title}</h2>
                                 <h3>{currentHouse.location}</h3>
-                                {houseDetails && <Tags tags={currentHouse.tags} />}
+                                <Tags tags={currentHouse.tags} />
                             </div>
                             <div className="infos">
                                 <div className="owner">

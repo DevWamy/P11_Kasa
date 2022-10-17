@@ -1,3 +1,4 @@
+import { home, about, housing, error } from './routes';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
@@ -16,11 +17,11 @@ root.render(
         <BrowserRouter>
             <Header />
             <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/about" element={<About />} />
+                <Route exact path={home} element={<Home />} />
+                <Route exact path={about} element={<About />} />
                 {/* Route dynamique pour aller sur une page specifique. */}
-                <Route path="/housing/:houseId" element={<Housing />} />
-                <Route path="*" element={<Error />} />
+                <Route path={housing} element={<Housing />} />
+                <Route path={error} element={<Error />} />
             </Routes>
             <Footer />
         </BrowserRouter>
