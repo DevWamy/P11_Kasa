@@ -5,9 +5,10 @@ import '../style/components/_cards.scss';
 const Cards = ({ title, cover, id }) => {
     return (
         <div className="card">
-            <img src={cover} alt={title} />
             <Link to={`/housing/${id}`}>
+                <img src={cover} alt={title} />
                 <p>{title}</p>
+                <div className="card_filter"></div>
             </Link>
         </div>
     );

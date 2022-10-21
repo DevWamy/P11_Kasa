@@ -19,7 +19,6 @@ root.render(
             <Routes>
                 <Route exact path={home} element={<Home />} />
                 <Route exact path={about} element={<About />} />
-                {/* Route dynamique pour aller sur une page specifique. */}
                 <Route path={housing} element={<Housing />} />
                 <Route path={error} element={<Error />} />
             </Routes>

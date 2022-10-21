@@ -8,12 +8,12 @@ import '../style/pages/_housing.scss';
 
 const Housing = () => {
     const [houseDetails, setHouseDetails] = useState(null); // useState parce que c'est un état => asynchrone = on a pas tout tout de suite, ça évolue
-    // Le useParams renvoie un objet de paires clé/valeur des paramètres dynamiques de l'URL actuelle qui ont été mis
-    // en correspondance par le <Route path>. Les routes enfants héritent de tous les paramètres de leurs routes parentes.
     //Je créé une variable pour récupérer l'id des apparts.
     const [isLoading, setIsLoading] = useState(true);
+    //useParams nous aide à accéder au paramètre passé dans l'URL sans utiliser l'objet props.
     const { houseId } = useParams();
     useEffect(() => {
+        //useEffect permet de déclencher une fonction de manière asynchrone lorsque l'état du composant change
         fetch('/data/logements.json')
             .then((response) => response.json())
             //  J'utilise find pour mettre à jour ton state

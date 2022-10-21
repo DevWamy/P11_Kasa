@@ -41,6 +41,15 @@
         cursor: pointer;
     }
 
+    .counter {
+        position: absolute;
+        bottom: 6%;
+        right: 50%;
+        font-size: 18px;
+        color: white;
+        font-weight: 500;
+    }
+
     @media screen and (max-width: 742px) {
         height: 255px;
         .previous,
