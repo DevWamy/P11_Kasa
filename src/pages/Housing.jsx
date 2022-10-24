@@ -8,9 +8,9 @@ import '../style/pages/_housing.scss';
 
 const Housing = () => {
     const [houseDetails, setHouseDetails] = useState(null); // useState parce que c'est un état => asynchrone = on a pas tout tout de suite, ça évolue
-    //Je créé une variable pour récupérer l'id des apparts.
     const [isLoading, setIsLoading] = useState(true);
     //useParams nous aide à accéder au paramètre passé dans l'URL sans utiliser l'objet props.
+    //Je créé une variable pour récupérer l'id des apparts.
     const { houseId } = useParams();
     useEffect(() => {
         //useEffect permet de déclencher une fonction de manière asynchrone lorsque l'état du composant change

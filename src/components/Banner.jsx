@@ -5,7 +5,7 @@ const Banner = ({ text, picture }) => {
     return (
         <div className="banner">
             {text && <h1>{text}</h1>}
-            {/* Evite d'afficher le h1 dans la page qund le texte est vide. */}
+            {/* Evite d'afficher le h1 dans la page quand le texte est vide. */}
             <img src={picture} alt="banner" />
             <div className="darken_filter"></div>
         </div>
