@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate, useParams } from 'react-router-dom'; //Je dois ajouter le Navigate
+import { Navigate, useParams } from 'react-router-dom';
 import Collapse from '../components/Collapse';
 import Slideshow from '../components/Slideshow';
 import Rating from '../components/Rating';
@@ -16,8 +16,8 @@ const Housing = () => {
         //useEffect permet de déclencher une fonction de manière asynchrone lorsque l'état du composant change
         fetch('/data/logements.json')
             .then((response) => response.json())
-            //  J'utilise find pour mettre à jour ton state
-            //Je recherche dans le tableau houseDetails parmi l'element, l'id de l'element correspond à houseId et je le récupère.
+            //  J'utilise find pour mettre à jour le state
+            // Je recherche dans le tableau houseDetails parmi l'element, l'id de l'element correspond à houseId et je le récupère.
             .then((houseDetails) => {
                 setHouseDetails(houseDetails.find((element) => element.id === houseId));
                 setIsLoading(false);
